@@ -427,6 +427,10 @@
             letter-spacing: 1px;
             border-radius: 4px;
             cursor: not-allowed;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
         }
 
         /* FLOATING DISCORD */
@@ -631,13 +635,42 @@
                     </div>
                 </a>
             </div>
+            
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-user-secret"></i></div>
+                <span class="badge-type" id="lbl-monthly-3">Monthly</span>
+                <h3 id="prod-bm-title">Black Market</h3>
+                <p id="prod-bm-desc">Control the underground. Sell illegal weapons and contraband. Valid for 30 days.</p>
+                <a href="https://discord.com/channels/1429467083615506623/1429467731408715806" class="btn-buy" target="_blank">
+                    <span class="btn-text">Purchase</span> 
+                    <div class="price-container">
+                        <span class="old-price">$45.00</span>
+                        <span class="new-price">$30.00</span>
+                    </div>
+                </a>
+            </div>
+
+            <div class="card">
+                <div class="sale-badge">SALE</div>
+                <div class="card-icon"><i class="fas fa-mask"></i></div>
+                <span class="badge-type" id="lbl-3mo-4">3 Months</span>
+                <h3 id="prod-bm3-title">Black Market Empire</h3>
+                <p id="prod-bm3-desc">Long-term control of the black market. Includes exclusive supplier access.</p>
+                <a href="https://discord.com/channels/1429467083615506623/1429467731408715806" class="btn-buy" target="_blank">
+                    <span class="btn-text">Purchase</span> 
+                    <div class="price-container">
+                        <span class="old-price">$80.00</span>
+                        <span class="new-price">$50.00</span>
+                    </div>
+                </a>
+            </div>
 
             <div class="card" style="opacity: 0.7;">
                 <div class="card-icon"><i class="fas fa-briefcase"></i></div>
                 <h3 id="prod-soon-title">More Businesses</h3>
                 <p id="prod-soon-desc">Bars, Nightclubs, and Restaurants are coming in future updates.</p>
                 <div class="btn-disabled">
-                    <i class="fas fa-lock"></i> <span id="lbl-soon-btn">Coming Soon</span>
+                    <i class="fas fa-clock"></i> <span class="lbl-soon-text">Coming Soon</span>
                 </div>
             </div>
         </div>
@@ -788,6 +821,8 @@
                 // Business Content
                 pMech: { t: "Mechanic Shop", d: "Run your own repair shop. Set prices, fix cars, and earn profit. Valid for 30 days." },
                 pMech3: { t: "Mechanic Enterprise", d: "Long-term ownership of the Mechanic Business. Includes bonus stash space." },
+                pBm: { t: "Black Market", d: "Control the underground. Sell illegal weapons and contraband. Valid for 30 days." },
+                pBm3: { t: "Black Market Empire", d: "Long-term control of the black market. Includes exclusive supplier access." },
                 pSoon: { t: "More Businesses", d: "Bars, Nightclubs, and Restaurants are coming in future updates." },
 
                 pPeds: { t: "VIP Peds", d: "Access to exclusive custom ped models and skins." },
@@ -829,6 +864,8 @@
                 // Business Content
                 pMech: { t: "ورشة ميكانيكا", d: "إدارة ورشة الإصلاح الخاصة بك. حدد الأسعار، أصلح السيارات واكسب المال. صالح لمدة 30 يومًا." },
                 pMech3: { t: "مؤسسة ميكانيكا", d: "ملكية طويلة الأمد لورشة الميكانيكا. تشمل مساحة تخزين إضافية." },
+                pBm: { t: "السوق السوداء", d: "تحكم في التجارة السرية. بيع أسلحة وممنوعات. صالح لمدة 30 يومًا." },
+                pBm3: { t: "إمبراطورية السوق السوداء", d: "سيطرة طويلة الأمد على السوق السوداء. تشمل وصول حصري للموردين." },
                 pSoon: { t: "المزيد من الأعمال", d: "الحانات، النوادي الليلية، والمطاعم قادمة في التحديثات المستقبلية." },
 
                 pPeds: { t: "شخصيات VIP", d: "الوصول إلى نماذج وشخصيات حصرية." },
@@ -876,7 +913,10 @@
             updateText('lbl-monthly', lang.lblMonthly);
             updateText('lbl-perm', lang.lblPerm);
             updateText('lbl-3mo', lang.lbl3Mo);
-            document.getElementById('lbl-soon-btn').innerText = lang.lblSoonBtn;
+            
+            // Update all Coming Soon buttons
+            const soonBtns = document.querySelectorAll('.lbl-soon-text');
+            soonBtns.forEach(btn => btn.innerText = lang.lblSoonBtn);
 
             // Update button texts specifically
             const buttons = document.querySelectorAll('.btn-buy .btn-text');
@@ -894,6 +934,8 @@
             // Business
             setProd('prod-mech', lang.pMech);
             setProd('prod-mech3', lang.pMech3);
+            setProd('prod-bm', lang.pBm);
+            setProd('prod-bm3', lang.pBm3);
             setProd('prod-soon', lang.pSoon);
 
             setProd('prod-peds', lang.pPeds);
