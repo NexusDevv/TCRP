@@ -218,7 +218,7 @@
             border-radius: 2px;
         }
 
-        /* GRID FIX: Changed minmax to 280px to force side-by-side on smaller screens */
+        /* GRID FIX */
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -413,6 +413,22 @@
         }
         .btn-buy:hover .old-price { color: rgba(0,0,0,0.5); }
 
+        /* DISABLED BUTTON STYLE */
+        .btn-disabled {
+            flex: 1;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.3);
+            padding: 12px;
+            text-align: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 4px;
+            cursor: not-allowed;
+        }
+
         /* FLOATING DISCORD */
         .discord-btn {
             position: fixed;
@@ -585,6 +601,46 @@
             </div>
         </div>
 
+        <div class="section-header" id="header-business">Businesses For Sale</div>
+        <div class="grid">
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-wrench"></i></div>
+                <span class="badge-type" id="lbl-monthly-2">Monthly</span>
+                <h3 id="prod-mech-title">Mechanic Shop</h3>
+                <p id="prod-mech-desc">Run your own repair shop. Set prices, fix cars, and earn profit. Valid for 30 days.</p>
+                <a href="https://discord.com/channels/1429467083615506623/1429467731408715806" class="btn-buy" target="_blank">
+                    <span class="btn-text">Purchase</span> 
+                    <div class="price-container">
+                        <span class="old-price">$45.00</span>
+                        <span class="new-price">$30.00</span>
+                    </div>
+                </a>
+            </div>
+
+            <div class="card">
+                <div class="sale-badge">BEST VALUE</div>
+                <div class="card-icon"><i class="fas fa-toolbox"></i></div>
+                <span class="badge-type" id="lbl-3mo-3">3 Months</span>
+                <h3 id="prod-mech3-title">Mechanic Enterprise</h3>
+                <p id="prod-mech3-desc">Long-term ownership of the Mechanic Business. Includes bonus stash space.</p>
+                <a href="https://discord.com/channels/1429467083615506623/1429467731408715806" class="btn-buy" target="_blank">
+                    <span class="btn-text">Purchase</span> 
+                    <div class="price-container">
+                        <span class="old-price">$90.00</span>
+                        <span class="new-price">$60.00</span>
+                    </div>
+                </a>
+            </div>
+
+            <div class="card" style="opacity: 0.7;">
+                <div class="card-icon"><i class="fas fa-briefcase"></i></div>
+                <h3 id="prod-soon-title">More Businesses</h3>
+                <p id="prod-soon-desc">Bars, Nightclubs, and Restaurants are coming in future updates.</p>
+                <div class="btn-disabled">
+                    <i class="fas fa-lock"></i> <span id="lbl-soon-btn">Coming Soon</span>
+                </div>
+            </div>
+        </div>
         <div class="section-header" id="header-character">VIP Character</div>
         <div class="grid">
             <div class="card">
@@ -711,12 +767,14 @@
 
                 headerVehicles: "VIP Vehicles",
                 headerEmpire: "Empire Building",
+                headerBusiness: "Businesses For Sale",
                 headerCharacter: "VIP Character",
                 headerWeapons: "Black Market",
 
                 lblMonthly: "Monthly",
                 lblPerm: "Permanent",
                 lbl3Mo: "3 Months",
+                lblSoonBtn: "Coming Soon",
                 btnText: "Purchase",
                 btnView: "View Peds",
 
@@ -726,6 +784,12 @@
                 pOwn: { t: "Import Ownership", d: "Lifetime ownership of 1 Import Vehicle. Full customization and key access." },
                 pGang: { t: "VIP Gang Package", d: "Includes Hood, Boss Menu, Stash, Garage, and 7 Import Cars. Valid for 3 Months." },
                 pHouse: { t: "VIP Luxury Estate", d: "Exclusive Mansion or Penthouse lease. Furnishing rights included." },
+                
+                // Business Content
+                pMech: { t: "Mechanic Shop", d: "Run your own repair shop. Set prices, fix cars, and earn profit. Valid for 30 days." },
+                pMech3: { t: "Mechanic Enterprise", d: "Long-term ownership of the Mechanic Business. Includes bonus stash space." },
+                pSoon: { t: "More Businesses", d: "Bars, Nightclubs, and Restaurants are coming in future updates." },
+
                 pPeds: { t: "VIP Peds", d: "Access to exclusive custom ped models and skins." },
                 pPistol: { t: "VIP Pistol", d: "Standard issue sidearm for self defense." },
                 pAr: { t: "VIP Assault Rifle", d: "Fully automatic carbine for high intensity situations." },
@@ -744,12 +808,14 @@
 
                 headerVehicles: "مركبات VIP",
                 headerEmpire: "بناء الإمبراطورية",
+                headerBusiness: "فرص تجارية",
                 headerCharacter: "شخصيات VIP",
                 headerWeapons: "السوق السوداء",
 
                 lblMonthly: "شهري",
                 lblPerm: "دائم",
                 lbl3Mo: "٣ أشهر",
+                lblSoonBtn: "قريباً",
                 btnText: "شراء",
                 btnView: "عرض الشخصيات",
 
@@ -759,6 +825,12 @@
                 pOwn: { t: "ملكية سيارة", d: "ملكية مدى الحياة لسيارة مستوردة واحدة. تعديل كامل ومفاتيح." },
                 pGang: { t: "حزمة العصابات", d: "تشمل المنطقة، قائمة الزعيم، المخزون، المرآب، و ٧ سيارات مستوردة. صالحة لمدة 3 أشهر." },
                 pHouse: { t: "عقار فاخر", d: "إيجار قصر حصري أو بنتهاوس. تشمل حقوق التأثيث." },
+                
+                // Business Content
+                pMech: { t: "ورشة ميكانيكا", d: "إدارة ورشة الإصلاح الخاصة بك. حدد الأسعار، أصلح السيارات واكسب المال. صالح لمدة 30 يومًا." },
+                pMech3: { t: "مؤسسة ميكانيكا", d: "ملكية طويلة الأمد لورشة الميكانيكا. تشمل مساحة تخزين إضافية." },
+                pSoon: { t: "المزيد من الأعمال", d: "الحانات، النوادي الليلية، والمطاعم قادمة في التحديثات المستقبلية." },
+
                 pPeds: { t: "شخصيات VIP", d: "الوصول إلى نماذج وشخصيات حصرية." },
                 pPistol: { t: "مسدس VIP", d: "سلاح جانبي قياسي للدفاع عن النفس." },
                 pAr: { t: "بندقية هجومية VIP", d: "رشاش آلي بالكامل للمواقف شديدة الخطورة." },
@@ -794,6 +866,7 @@
 
             document.getElementById('header-vehicles').innerText = lang.headerVehicles;
             document.getElementById('header-empire').innerText = lang.headerEmpire;
+            document.getElementById('header-business').innerText = lang.headerBusiness;
             document.getElementById('header-character').innerText = lang.headerCharacter;
             document.getElementById('header-weapons').innerText = lang.headerWeapons;
 
@@ -803,6 +876,7 @@
             updateText('lbl-monthly', lang.lblMonthly);
             updateText('lbl-perm', lang.lblPerm);
             updateText('lbl-3mo', lang.lbl3Mo);
+            document.getElementById('lbl-soon-btn').innerText = lang.lblSoonBtn;
 
             // Update button texts specifically
             const buttons = document.querySelectorAll('.btn-buy .btn-text');
@@ -816,6 +890,12 @@
             setProd('prod-own', lang.pOwn);
             setProd('prod-gang', lang.pGang);
             setProd('prod-house', lang.pHouse);
+            
+            // Business
+            setProd('prod-mech', lang.pMech);
+            setProd('prod-mech3', lang.pMech3);
+            setProd('prod-soon', lang.pSoon);
+
             setProd('prod-peds', lang.pPeds);
             setProd('prod-pistol', lang.pPistol);
             setProd('prod-ar', lang.pAr);
@@ -832,4 +912,5 @@
         }
     </script>
 </body>
+
 </html>
