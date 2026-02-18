@@ -587,6 +587,71 @@
 
         .accent-text { color: var(--accent); font-weight: 700; }
 
+        /* BLACK MARKET LOCKED */
+        .bm-locked-banner {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            background: rgba(230, 57, 70, 0.07);
+            border: 1px solid rgba(230, 57, 70, 0.35);
+            border-left: 4px solid #e63946;
+            border-radius: 14px;
+            padding: 24px 30px;
+            margin-bottom: 20px;
+            backdrop-filter: blur(8px);
+        }
+        .bm-lock-icon {
+            font-size: 2.2rem;
+            color: #e63946;
+            opacity: 0.8;
+            flex-shrink: 0;
+        }
+        .bm-locked-title {
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: #e63946;
+            letter-spacing: 1px;
+            margin-bottom: 4px;
+            font-family: 'Cinzel', serif;
+        }
+        .bm-locked-sub {
+            font-size: 0.85rem;
+            color: var(--text-sub);
+            margin-bottom: 12px;
+        }
+        .bm-timer {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .bm-unit {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .bm-unit span {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: #e63946;
+            line-height: 1;
+            text-shadow: 0 0 12px rgba(230,57,70,0.4);
+        }
+        .bm-unit p {
+            font-size: 0.6rem;
+            color: var(--text-sub);
+            margin-top: 4px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        .bm-sep {
+            font-size: 1.5rem;
+            color: rgba(230,57,70,0.5);
+            margin-top: -12px;
+        }
+        @media (max-width: 768px) {
+            .bm-locked-banner { flex-direction: column; align-items: flex-start; gap: 14px; }
+        }
+
         /* RESPONSIVE */
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.5rem; }
@@ -836,48 +901,46 @@
         </div>
 
         <div class="section-header" id="header-weapons">Black Market</div>
-        <div class="grid">
+
+        <!-- Black Market locked banner -->
+        <div class="bm-locked-banner">
+            <div class="bm-lock-icon"><i class="fas fa-lock"></i></div>
+            <div>
+                <div class="bm-locked-title">🔒 Black Market is Currently Locked</div>
+                <div class="bm-locked-sub">This section will be available in:</div>
+                <div class="bm-timer" id="bm-timer">
+                    <div class="bm-unit"><span id="bm-days">200</span><p>DAYS</p></div>
+                    <div class="bm-sep">:</div>
+                    <div class="bm-unit"><span id="bm-hours">00</span><p>HOURS</p></div>
+                    <div class="bm-sep">:</div>
+                    <div class="bm-unit"><span id="bm-minutes">00</span><p>MINS</p></div>
+                    <div class="bm-sep">:</div>
+                    <div class="bm-unit"><span id="bm-seconds">00</span><p>SECS</p></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid" style="opacity:0.4; pointer-events:none; filter: blur(1px);">
             <div class="card">
-                <div class="sale-badge">🌙 RAMADAN SALE</div>
                 <div class="card-icon"><i class="fas fa-gun"></i></div>
                 <span class="badge-type" id="lbl-perm-2">Permanent</span>
                 <h3 id="prod-pistol-title">VIP Pistol</h3>
                 <p id="prod-pistol-desc">Standard issue sidearm for self defense.</p>
-                <a href="https://discord.com/channels/1429467083615506623/1429467731408715806" class="btn-buy" target="_blank">
-                    <span class="btn-text">Purchase</span>
-                    <div class="price-container">
-                        <span class="old-price">$45.00</span>
-                        <span class="new-price">$25.00</span>
-                    </div>
-                </a>
+                <div class="btn-disabled"><i class="fas fa-lock"></i> <span>Locked</span></div>
             </div>
             <div class="card">
-                <div class="sale-badge">🔥 LIMITED TIME</div>
                 <div class="card-icon"><i class="fas fa-person-rifle"></i></div>
                 <span class="badge-type" id="lbl-perm-3">Permanent</span>
                 <h3 id="prod-ar-title">VIP Assault Rifle</h3>
                 <p id="prod-ar-desc">Fully automatic carbine for high intensity situations.</p>
-                <a href="https://discord.com/channels/1429467083615506623/1429467731408715806" class="btn-buy" target="_blank">
-                    <span class="btn-text">Purchase</span>
-                    <div class="price-container">
-                        <span class="old-price">$60.00</span>
-                        <span class="new-price">$35.00</span>
-                    </div>
-                </a>
+                <div class="btn-disabled"><i class="fas fa-lock"></i> <span>Locked</span></div>
             </div>
             <div class="card">
-                <div class="sale-badge">⭐ SPECIAL OFFER</div>
                 <div class="card-icon"><i class="fas fa-crosshairs"></i></div>
                 <span class="badge-type" id="lbl-perm-4">Permanent</span>
                 <h3 id="prod-sniper-title">VIP Sniper</h3>
                 <p id="prod-sniper-desc">Long range elimination tool for the elite marksman.</p>
-                <a href="https://discord.com/channels/1429467083615506623/1429467731408715806" class="btn-buy" target="_blank">
-                    <span class="btn-text">Purchase</span>
-                    <div class="price-container">
-                        <span class="old-price">$120.00</span>
-                        <span class="new-price">$65.00</span>
-                    </div>
-                </a>
+                <div class="btn-disabled"><i class="fas fa-lock"></i> <span>Locked</span></div>
             </div>
         </div>
 
@@ -895,6 +958,18 @@
     </a>
 
     <script>
+        // BLACK MARKET 200-DAY COUNTDOWN
+        const bmTarget = new Date().getTime() + (200 * 24 * 60 * 60 * 1000);
+        const bmInterval = setInterval(function() {
+            const now = new Date().getTime();
+            const dist = bmTarget - now;
+            if (dist < 0) { clearInterval(bmInterval); return; }
+            document.getElementById('bm-days').innerText    = String(Math.floor(dist / (1000*60*60*24))).padStart(3,'0');
+            document.getElementById('bm-hours').innerText   = String(Math.floor((dist%(1000*60*60*24))/(1000*60*60))).padStart(2,'0');
+            document.getElementById('bm-minutes').innerText = String(Math.floor((dist%(1000*60*60))/(1000*60))).padStart(2,'0');
+            document.getElementById('bm-seconds').innerText = String(Math.floor((dist%( 1000*60))/1000)).padStart(2,'0');
+        }, 1000);
+
         // LANGUAGE LOGIC
         const content = {
             en: {
