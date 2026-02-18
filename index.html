@@ -162,6 +162,28 @@
             font-family: 'Rubik', sans-serif;
         }
 
+        .site-nav {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--text-sub);
+            padding: 9px 20px;
+            border-radius: 50px;
+            font-size: 0.88rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: 0.3s;
+            border: 1px solid transparent;
+        }
+        .nav-link:hover { color: #fff; background: var(--bg-panel); border-color: var(--border-dim); }
+        .nav-link.active { color: #000; background: linear-gradient(45deg, var(--accent), var(--accent-2)); box-shadow: 0 0 16px var(--accent-glow); }
+
         .lang-toggle {
             cursor: pointer;
             font-size: 0.85rem;
@@ -681,9 +703,13 @@
             <i class="fas fa-moon"></i> TCRP STORE
             <span class="brand-ramadan-tag">🌙 Ramadan</span>
         </div>
-        <div class="lang-toggle" onclick="toggleLanguage()">
-            <span id="current-lang">English</span> <i class="fas fa-globe"></i>
-        </div>
+        <nav class="site-nav">
+            <a href="https://nexusdevv.github.io/TCRP/" class="nav-link active"><i class="fas fa-store"></i> المتجر</a>
+            <a href="https://nexusdevv.github.io/The-City-RP/" class="nav-link"><i class="fas fa-scroll"></i> القوانين</a>
+            <div class="lang-toggle" onclick="toggleLanguage()">
+                <span id="current-lang">English</span> <i class="fas fa-globe"></i>
+            </div>
+        </nav>
     </header>
 
     <div class="hero">
