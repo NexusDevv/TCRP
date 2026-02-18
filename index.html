@@ -3,38 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TCRP | Store</title>
+    <title>TCRP | Ramadan Store 🌙</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&family=Rubik:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&family=Cinzel:wght@400;700;900&family=Rubik:wght@300;400;600;800&display=swap" rel="stylesheet">
 
     <style>
         :root {
-            --bg-dark: #0f0f0f;
-            --bg-panel: rgba(255, 255, 255, 0.05);
-            --bg-panel-hover: rgba(255, 255, 255, 0.1);
-            
-            /* The Gold Accent */
-            --accent: #FFC107; 
-            --accent-glow: rgba(255, 193, 7, 0.4);
-            
-            --sale-red: #ff4757;
-            
+            --bg-dark: #080c14;
+            --bg-panel: rgba(20, 30, 55, 0.55);
+            --bg-panel-hover: rgba(30, 48, 80, 0.85);
+
+            /* Ramadan Gold */
+            --accent: #f5c542;
+            --accent-2: #e6ac00;
+            --accent-glow: rgba(245, 197, 66, 0.55);
+            --accent-soft: rgba(245, 197, 66, 0.08);
+
+            --sale-red: #e63946;
+
             --text-main: #ffffff;
-            --text-sub: #a0a0a0;
-            --border: rgba(255, 255, 255, 0.1);
-            
+            --text-sub: #b0bdd6;
+            --border: rgba(245, 197, 66, 0.15);
+            --border-dim: rgba(255, 255, 255, 0.07);
+
             --discord: #5865F2;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; outline: none; }
 
         body {
-            /* Mesh Gradient Background */
             background-color: var(--bg-dark);
-            background-image: 
-                radial-gradient(at 0% 0%, hsla(253,16%,7%,1) 0, transparent 50%), 
-                radial-gradient(at 50% 0%, hsla(225,39%,30%,1) 0, transparent 50%), 
-                radial-gradient(at 100% 0%, hsla(339,49%,30%,1) 0, transparent 50%);
+            background-image:
+                radial-gradient(ellipse at 15% 15%, rgba(245,197,66,0.07) 0%, transparent 45%),
+                radial-gradient(ellipse at 85% 0%, rgba(30,90,180,0.18) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 100%, rgba(20,50,100,0.3) 0%, transparent 60%),
+                linear-gradient(180deg, #080c14 0%, #0d1525 60%, #080c14 100%);
             background-attachment: fixed;
             background-size: cover;
             color: var(--text-main);
@@ -45,46 +48,123 @@
             flex-direction: column;
         }
 
+        /* Stars overlay */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image:
+                radial-gradient(1px 1px at 10% 15%, rgba(255,255,255,0.6) 0%, transparent 100%),
+                radial-gradient(1px 1px at 25% 35%, rgba(255,255,255,0.4) 0%, transparent 100%),
+                radial-gradient(1.5px 1.5px at 40% 10%, rgba(245,197,66,0.7) 0%, transparent 100%),
+                radial-gradient(1px 1px at 60% 25%, rgba(255,255,255,0.5) 0%, transparent 100%),
+                radial-gradient(1px 1px at 75% 8%, rgba(255,255,255,0.4) 0%, transparent 100%),
+                radial-gradient(1.5px 1.5px at 88% 18%, rgba(245,197,66,0.6) 0%, transparent 100%),
+                radial-gradient(1px 1px at 15% 55%, rgba(255,255,255,0.3) 0%, transparent 100%),
+                radial-gradient(1px 1px at 55% 60%, rgba(255,255,255,0.3) 0%, transparent 100%),
+                radial-gradient(1px 1px at 92% 45%, rgba(255,255,255,0.4) 0%, transparent 100%),
+                radial-gradient(1px 1px at 5% 80%, rgba(255,255,255,0.2) 0%, transparent 100%),
+                radial-gradient(1px 1px at 33% 72%, rgba(255,255,255,0.3) 0%, transparent 100%),
+                radial-gradient(1.5px 1.5px at 70% 75%, rgba(245,197,66,0.5) 0%, transparent 100%),
+                radial-gradient(1px 1px at 80% 88%, rgba(255,255,255,0.3) 0%, transparent 100%),
+                radial-gradient(1px 1px at 48% 90%, rgba(255,255,255,0.25) 0%, transparent 100%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
         body.rtl { font-family: 'Cairo', sans-serif; direction: rtl; }
 
         /* SCROLLBAR */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #000; }
-        ::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: var(--bg-dark); }
+        ::-webkit-scrollbar-thumb { background: var(--accent-2); border-radius: 3px; }
         ::-webkit-scrollbar-thumb:hover { background: var(--accent); }
 
-        /* NAVBAR - Glass Effect */
+        /* CRESCENT MOON decoration */
+        .ramadan-moon {
+            position: fixed;
+            top: 80px;
+            right: 60px;
+            width: 110px;
+            height: 110px;
+            background: radial-gradient(circle at 38% 38%, #f5c542 60%, transparent 61%);
+            border-radius: 50%;
+            box-shadow: -22px 0 0 12px var(--bg-dark), 0 0 50px rgba(245,197,66,0.15);
+            opacity: 0.22;
+            pointer-events: none;
+            z-index: 1;
+            animation: moonPulse 4s ease-in-out infinite;
+        }
+
+        @keyframes moonPulse {
+            0%, 100% { opacity: 0.22; }
+            50% { opacity: 0.32; }
+        }
+
+        /* FLOATING LANTERN */
+        .lantern {
+            position: fixed;
+            pointer-events: none;
+            z-index: 1;
+            opacity: 0.18;
+            font-size: 2rem;
+            animation: float 6s ease-in-out infinite;
+        }
+        .lantern-1 { left: 30px; top: 140px; animation-delay: 0s; }
+        .lantern-2 { left: 60px; top: 300px; animation-delay: 2s; font-size: 1.4rem; opacity: 0.12; }
+        .lantern-r1 { right: 30px; top: 250px; animation-delay: 1s; }
+        .lantern-r2 { right: 55px; top: 430px; animation-delay: 3s; font-size: 1.4rem; opacity: 0.12; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(-5deg); }
+            50% { transform: translateY(-18px) rotate(5deg); }
+        }
+
+        /* NAVBAR */
         header {
-            padding: 20px 5%;
+            padding: 18px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
             border-bottom: 1px solid var(--border);
-            background: rgba(15, 15, 15, 0.8);
-            backdrop-filter: blur(10px);
+            background: rgba(8, 12, 20, 0.88);
+            backdrop-filter: blur(14px);
             position: sticky;
             top: 0;
             z-index: 100;
         }
 
         .brand {
-            font-size: 1.6rem;
-            font-weight: 800;
-            letter-spacing: 2px;
+            font-family: 'Cinzel', serif;
+            font-size: 1.4rem;
+            font-weight: 900;
+            letter-spacing: 3px;
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 14px;
             text-transform: uppercase;
         }
-        
-        .brand i { 
-            color: var(--accent); 
-            text-shadow: 0 0 15px var(--accent-glow);
+
+        .brand i {
+            color: var(--accent);
+            text-shadow: 0 0 18px var(--accent-glow);
+        }
+
+        .brand-ramadan-tag {
+            font-size: 0.6rem;
+            background: linear-gradient(45deg, var(--accent), var(--accent-2));
+            color: #000;
+            font-weight: 800;
+            padding: 3px 8px;
+            border-radius: 20px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-family: 'Rubik', sans-serif;
         }
 
         .lang-toggle {
             cursor: pointer;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: var(--text-main);
             background: var(--bg-panel);
             border: 1px solid var(--border);
@@ -96,224 +176,250 @@
             align-items: center;
             gap: 8px;
         }
-        .lang-toggle:hover { background: var(--accent); color: #000; border-color: var(--accent); box-shadow: 0 0 15px var(--accent-glow); }
+        .lang-toggle:hover {
+            background: var(--accent);
+            color: #000;
+            border-color: var(--accent);
+            box-shadow: 0 0 18px var(--accent-glow);
+        }
 
-        /* HERO SECTION */
+        /* HERO */
         .hero {
-            padding: 100px 20px 60px;
+            padding: 90px 20px 60px;
             text-align: center;
             max-width: 900px;
             margin: 0 auto;
             animation: fadeIn 1s ease-out;
+            position: relative;
+            z-index: 2;
         }
 
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
 
         .hero h1 {
-            font-size: 4rem;
-            font-weight: 800;
+            font-family: 'Cinzel', serif;
+            font-size: 3.8rem;
+            font-weight: 900;
             margin-bottom: 15px;
-            line-height: 1.1;
+            line-height: 1.15;
             text-transform: uppercase;
-            letter-spacing: -1px;
+            letter-spacing: 2px;
         }
 
-        .hero h1 span { 
+        .hero h1 span {
             color: transparent;
             -webkit-text-stroke: 2px var(--accent);
-            position: relative;
-        }
-        
-        .hero p {
-            color: var(--text-sub);
-            font-size: 1.2rem;
-            max-width: 600px;
-            margin: 0 auto 40px;
-            line-height: 1.6;
+            text-shadow: none;
+            filter: drop-shadow(0 0 20px var(--accent-glow));
         }
 
-        /* --- COUNTDOWN TIMER STYLES --- */
+        .hero p {
+            color: var(--text-sub);
+            font-size: 1.15rem;
+            max-width: 600px;
+            margin: 0 auto 40px;
+            line-height: 1.7;
+        }
+
+        /* SEASON LIVE BANNER */
         .countdown-container {
-            background: rgba(0, 0, 0, 0.4);
-            backdrop-filter: blur(10px);
+            background: rgba(8, 12, 22, 0.7);
+            backdrop-filter: blur(12px);
             border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 30px;
+            border-radius: 16px;
+            padding: 32px 50px;
             display: inline-block;
             margin-top: 10px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            box-shadow: 0 0 60px rgba(245,197,66,0.08), 0 10px 40px rgba(0,0,0,0.5);
             border-top: 3px solid var(--accent);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .countdown-container::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at 50% 0%, rgba(245,197,66,0.06), transparent 60%);
+            pointer-events: none;
         }
 
         .countdown-label {
-            font-size: 0.9rem;
-            letter-spacing: 2px;
+            font-size: 1.15rem;
+            letter-spacing: 3px;
             text-transform: uppercase;
-            color: var(--text-sub);
-            margin-bottom: 15px;
-            font-weight: 700;
-        }
-
-        .timer {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 20px;
-        }
-
-        .time-unit {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .time-unit span {
-            font-size: 2.5rem;
+            color: var(--accent);
             font-weight: 800;
-            color: var(--text-main);
-            line-height: 1;
+            font-family: 'Cinzel', serif;
             text-shadow: 0 0 20px var(--accent-glow);
         }
-        
-        .time-unit span.highlight { color: var(--accent); }
 
-        .time-unit p {
-            font-size: 0.7rem;
+        .season-sub {
+            margin-top: 14px;
+            font-size: 1rem;
             color: var(--text-sub);
-            margin: 5px 0 0 0;
-            font-weight: 600;
+            line-height: 1.6;
         }
 
-        .separator {
-            font-size: 2rem;
-            color: var(--border);
-            margin-top: -20px;
+        /* ISLAMIC ORNAMENT DIVIDER */
+        .ornament {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 14px;
+            justify-content: center;
+            color: var(--accent-2);
+            font-size: 1.1rem;
+            opacity: 0.7;
         }
+        .ornament::before, .ornament::after {
+            content: '';
+            height: 1px;
+            width: 60px;
+            background: linear-gradient(to right, transparent, var(--accent-2));
+        }
+        .ornament::after { background: linear-gradient(to left, transparent, var(--accent-2)); }
 
         /* CONTAINER */
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px 60px;
+            padding: 0 20px 80px;
             flex-grow: 1;
+            position: relative;
+            z-index: 2;
         }
 
         .section-header {
             margin-bottom: 30px;
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             font-weight: 700;
             text-transform: uppercase;
             display: flex;
             align-items: center;
             gap: 15px;
             color: #fff;
+            font-family: 'Cinzel', serif;
+            letter-spacing: 1px;
         }
 
         .section-header::before {
             content: '';
-            width: 8px;
-            height: 35px;
-            background: var(--accent);
-            box-shadow: 0 0 10px var(--accent-glow);
+            width: 6px;
+            height: 32px;
+            background: linear-gradient(to bottom, var(--accent), var(--accent-2));
+            box-shadow: 0 0 12px var(--accent-glow);
             border-radius: 2px;
         }
 
-        /* GRID FIX */
+        /* GRID */
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            margin-bottom: 80px;
+            gap: 22px;
+            margin-bottom: 70px;
         }
 
-        /* PREMIUM CARD DESIGN */
+        /* CARD */
         .card {
             background: var(--bg-panel);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 35px 30px;
-            transition: all 0.3s ease;
+            border: 1px solid var(--border-dim);
+            border-radius: 18px;
+            padding: 35px 28px;
+            transition: all 0.35s ease;
             position: relative;
             overflow: hidden;
             display: flex;
             flex-direction: column;
-            backdrop-filter: blur(5px);
+            backdrop-filter: blur(8px);
+        }
+
+        /* Subtle inner shimmer */
+        .card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at 50% 0%, rgba(245,197,66,0.04), transparent 60%);
+            pointer-events: none;
+            border-radius: 18px;
         }
 
         .card:hover {
             transform: translateY(-8px);
-            border-color: var(--accent);
-            box-shadow: 0 10px 40px -10px rgba(0,0,0,0.5);
+            border-color: rgba(245,197,66,0.4);
+            box-shadow: 0 0 40px rgba(245,197,66,0.12), 0 20px 40px rgba(0,0,0,0.4);
             background: var(--bg-panel-hover);
         }
 
-        /* Top Accent Line */
         .card::after {
             content: '';
             position: absolute;
             top: 0; left: 0; width: 100%; height: 3px;
-            background: var(--accent);
+            background: linear-gradient(90deg, var(--accent), var(--accent-2));
             transform: scaleX(0);
-            transition: 0.3s;
+            transition: 0.35s;
             transform-origin: left;
+            border-radius: 2px 2px 0 0;
         }
-        .card:hover::after { transform: scaleX(1); box-shadow: 0 0 10px var(--accent); }
+        .card:hover::after { transform: scaleX(1); box-shadow: 0 0 14px var(--accent-glow); }
 
         /* SALE BADGE */
         .sale-badge {
             position: absolute;
-            top: 20px;
-            left: 20px;
-            background: var(--sale-red);
-            color: white;
-            font-size: 0.7rem;
-            font-weight: 800;
-            padding: 4px 8px;
-            border-radius: 4px;
+            top: 18px;
+            left: 18px;
+            background: linear-gradient(45deg, var(--accent), var(--accent-2));
+            color: #000;
+            font-size: 0.68rem;
+            font-weight: 900;
+            padding: 5px 11px;
+            border-radius: 20px;
             text-transform: uppercase;
-            box-shadow: 0 0 10px rgba(255, 71, 87, 0.4);
+            box-shadow: 0 0 18px var(--accent-glow);
+            letter-spacing: 0.5px;
         }
-        body.rtl .sale-badge { left: auto; right: 20px; }
+        body.rtl .sale-badge { left: auto; right: 18px; }
 
-        /* Icon Container */
         .card-icon {
             width: 50px;
             height: 50px;
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(245, 197, 66, 0.06);
             border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             color: var(--accent);
             margin-bottom: 20px;
             transition: 0.3s;
+            border: 1px solid rgba(245,197,66,0.15);
         }
-        
+
         .card:hover .card-icon {
             background: var(--accent);
             color: #000;
-            box-shadow: 0 0 15px var(--accent-glow);
+            box-shadow: 0 0 18px var(--accent-glow);
+            border-color: var(--accent);
         }
 
         .badge-type {
             position: absolute;
-            top: 20px;
-            right: 20px;
-            font-size: 0.75rem;
+            top: 18px;
+            right: 18px;
+            font-size: 0.72rem;
             font-weight: 700;
             color: var(--text-sub);
-            background: rgba(0,0,0,0.3);
-            padding: 5px 10px;
+            background: rgba(0,0,0,0.4);
+            padding: 4px 10px;
             border-radius: 6px;
             text-transform: uppercase;
             letter-spacing: 1px;
+            border: 1px solid var(--border-dim);
         }
-        
-        body.rtl .badge-type { right: auto; left: 20px; }
+        body.rtl .badge-type { right: auto; left: 18px; }
 
         .card h3 {
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             margin-bottom: 10px;
             color: #fff;
             font-weight: 700;
@@ -321,22 +427,21 @@
 
         .card p {
             color: var(--text-sub);
-            font-size: 0.95rem;
-            line-height: 1.6;
-            margin-bottom: 30px;
+            font-size: 0.92rem;
+            line-height: 1.65;
+            margin-bottom: 28px;
             flex-grow: 1;
         }
 
-        /* BUTTON GROUP (SIDE BY SIDE) */
+        /* BUTTON GROUP */
         .btn-group {
             display: flex;
-            gap: 15px;
+            gap: 12px;
             margin-top: auto;
         }
 
-        /* VIEW BUTTON (Outline Style) */
         .btn-view {
-            flex: 1; /* Takes equal space */
+            flex: 1;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -348,29 +453,28 @@
             text-align: center;
             font-weight: 700;
             text-transform: uppercase;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             transition: 0.3s;
             letter-spacing: 1px;
-            border-radius: 4px;
+            border-radius: 6px;
         }
 
         .btn-view:hover {
             background: var(--accent);
             color: #000;
-            box-shadow: 0 0 15px var(--accent-glow);
+            box-shadow: 0 0 18px var(--accent-glow);
         }
 
-        /* PURCHASE BUTTON (Solid/Gradient Style) */
         .btn-buy {
-            flex: 1; /* Takes equal space */
+            flex: 1;
             text-decoration: none;
-            background: linear-gradient(45deg, transparent 5%, var(--border) 5%);
-            border: 1px solid var(--border);
+            border: 1px solid var(--border-dim);
+            background: rgba(255,255,255,0.04);
             color: #fff;
-            padding: 12px; /* Matched height with view button */
+            padding: 12px 15px;
             text-align: center;
             font-weight: 700;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             transition: 0.3s;
             text-transform: uppercase;
             letter-spacing: 1px;
@@ -380,25 +484,21 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding-left: 15px;
-            padding-right: 15px;
-            border-radius: 4px;
+            border-radius: 6px;
         }
 
-        /* Hover Effect for Button */
         .btn-buy::before {
             content: '';
             position: absolute;
             top: 0; left: 0; width: 0%; height: 100%;
-            background: var(--accent);
+            background: linear-gradient(45deg, var(--accent), var(--accent-2));
             z-index: -1;
             transition: 0.3s;
         }
 
         .btn-buy:hover::before { width: 100%; }
-        .btn-buy:hover { color: #000; border-color: var(--accent); box-shadow: 0 0 20px var(--accent-glow); }
+        .btn-buy:hover { color: #000; border-color: var(--accent); box-shadow: 0 0 22px var(--accent-glow); }
 
-        /* Price Styling inside button */
         .price-container {
             display: flex;
             flex-direction: column;
@@ -406,26 +506,25 @@
             line-height: 1;
         }
         .old-price {
-            font-size: 0.7rem;
+            font-size: 0.68rem;
             text-decoration: line-through;
-            color: rgba(255,255,255,0.5);
+            color: rgba(255,255,255,0.4);
             margin-bottom: 2px;
         }
-        .btn-buy:hover .old-price { color: rgba(0,0,0,0.5); }
+        .btn-buy:hover .old-price { color: rgba(0,0,0,0.45); }
 
-        /* DISABLED BUTTON STYLE */
         .btn-disabled {
             flex: 1;
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.1);
-            color: rgba(255,255,255,0.3);
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            color: rgba(255,255,255,0.25);
             padding: 12px;
             text-align: center;
             font-weight: 700;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             text-transform: uppercase;
             letter-spacing: 1px;
-            border-radius: 4px;
+            border-radius: 6px;
             cursor: not-allowed;
             display: flex;
             justify-content: center;
@@ -433,75 +532,88 @@
             gap: 10px;
         }
 
-        /* FLOATING DISCORD */
+        /* DISCORD FLOAT */
         .discord-btn {
             position: fixed;
             bottom: 30px;
             right: 30px;
-            width: 65px;
-            height: 65px;
+            width: 62px;
+            height: 62px;
             background: var(--discord);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 2rem;
-            box-shadow: 0 10px 30px rgba(88, 101, 242, 0.4);
-            transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            font-size: 1.8rem;
+            box-shadow: 0 10px 30px rgba(88,101,242,0.4);
+            transition: 0.3s cubic-bezier(0.175,0.885,0.32,1.275);
             z-index: 200;
             border: 2px solid rgba(255,255,255,0.1);
         }
-        .discord-btn:hover { transform: scale(1.1) rotate(10deg); background: #fff; color: var(--discord); }
+        .discord-btn:hover { transform: scale(1.12) rotate(10deg); background: #fff; color: var(--discord); }
         body.rtl .discord-btn { right: auto; left: 30px; }
 
-        /* FOOTER & REFUND POLICY */
+        /* FOOTER */
         footer {
             text-align: center;
             padding: 40px 20px;
             color: var(--text-sub);
-            font-size: 0.9rem;
+            font-size: 0.88rem;
             border-top: 1px solid var(--border);
-            background: rgba(0,0,0,0.3);
+            background: rgba(0,0,0,0.45);
             margin-top: auto;
+            position: relative;
+            z-index: 2;
         }
 
         .policy-box {
             display: inline-block;
             border: 1px solid var(--accent);
-            padding: 10px 25px;
+            padding: 10px 28px;
             border-radius: 50px;
             color: var(--accent);
-            font-weight: 600;
-            background: rgba(255, 193, 7, 0.05);
-            box-shadow: 0 0 20px rgba(255, 193, 7, 0.05);
+            font-weight: 700;
+            background: var(--accent-soft);
+            box-shadow: 0 0 20px rgba(245,197,66,0.06);
             margin-bottom: 15px;
             transition: 0.3s;
         }
         .policy-box:hover {
             background: var(--accent);
             color: #000;
-            box-shadow: 0 0 20px var(--accent-glow);
+            box-shadow: 0 0 22px var(--accent-glow);
         }
+
+        .accent-text { color: var(--accent); font-weight: 700; }
 
         /* RESPONSIVE */
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.8rem; }
+            .hero h1 { font-size: 2.5rem; }
             .grid { grid-template-columns: 1fr; }
-            .section-header { font-size: 1.5rem; }
-            /* Stack buttons on mobile */
+            .section-header { font-size: 1.3rem; }
             .btn-group { flex-direction: column; gap: 10px; }
-            
-            .timer { gap: 10px; }
-            .time-unit span { font-size: 2rem; }
+            .ramadan-moon { display: none; }
+            .lantern { display: none; }
+            .countdown-container { padding: 24px 28px; }
         }
     </style>
 </head>
 <body class="ltr">
 
+    <!-- Crescent Moon -->
+    <div class="ramadan-moon"></div>
+
+    <!-- Floating Lanterns -->
+    <div class="lantern lantern-1">🪔</div>
+    <div class="lantern lantern-2">🏮</div>
+    <div class="lantern lantern-r1">🪔</div>
+    <div class="lantern lantern-r2">🏮</div>
+
     <header>
         <div class="brand">
-            <i class="fas fa-cube"></i> TCRP STORE
+            <i class="fas fa-moon"></i> TCRP STORE
+            <span class="brand-ramadan-tag">🌙 Ramadan</span>
         </div>
         <div class="lang-toggle" onclick="toggleLanguage()">
             <span id="current-lang">English</span> <i class="fas fa-globe"></i>
@@ -509,65 +621,61 @@
     </header>
 
     <div class="hero">
-        <h1 id="hero-title">Dominate The <span>City</span></h1>
-        <p id="hero-desc">The official store for The City Roleplay. Purchase exclusive assets to enhance your gameplay experience.</p>
-        
+        <h1 id="hero-title">Ramadan <span>Kareem</span></h1>
+        <p id="hero-desc">Celebrate the holy month with exclusive Ramadan deals and limited-time rewards for The City Roleplay.</p>
+
         <div class="countdown-container">
-            <div class="countdown-label" id="timer-title">BETA SEASON OPENS IN</div>
-            <div class="timer">
-                <div class="time-unit">
-                    <span id="days" class="highlight">00</span>
-                    <p id="lbl-days">DAYS</p>
-                </div>
-                <div class="separator">:</div>
-                <div class="time-unit">
-                    <span id="hours" class="highlight">00</span>
-                    <p id="lbl-hours">HOURS</p>
-                </div>
-                <div class="separator">:</div>
-                <div class="time-unit">
-                    <span id="minutes" class="highlight">00</span>
-                    <p id="lbl-minutes">MINS</p>
-                </div>
-                <div class="separator">:</div>
-                <div class="time-unit">
-                    <span id="seconds" class="highlight">00</span>
-                    <p id="lbl-seconds">SECS</p>
-                </div>
+            <div class="countdown-label" id="timer-title">🌙 RAMADAN SEASON IS LIVE 🌙</div>
+            <div class="ornament">✦ ✦ ✦</div>
+            <div class="season-sub" id="season-sub">
+                Enjoy exclusive Ramadan discounts across all categories!<br>
+                <span class="accent-text">Limited time — don't miss out.</span>
             </div>
         </div>
-
     </div>
 
     <div class="container">
-        
+
         <div class="section-header" id="header-vehicles">VIP Vehicles</div>
         <div class="grid">
             <div class="card">
-                <div class="sale-badge">SALE</div>
+                <div class="sale-badge">🌙 RAMADAN SALE</div>
                 <div class="card-icon"><i class="fas fa-car"></i></div>
                 <span class="badge-type" id="lbl-monthly-1">Monthly</span>
                 <h3 id="prod-lease-title">Import Lease</h3>
                 <p id="prod-lease-desc">Access to 1 Import Vehicle of your choice for 30 days. Renew to keep.</p>
                 <a href="https://discord.com/channels/1429467083615506623/1429467731408715806" class="btn-buy" target="_blank">
-                    <span class="btn-text">Purchase</span> 
+                    <span class="btn-text">Purchase</span>
                     <div class="price-container">
                         <span class="old-price">$30.00</span>
-                        <span class="new-price">$20.00</span>
+                        <span class="new-price">$15.00</span>
                     </div>
                 </a>
             </div>
             <div class="card">
-                <div class="sale-badge">SALE</div>
+                <div class="sale-badge">🌙 RAMADAN SALE</div>
+                <div class="card-icon"><i class="fas fa-radio"></i></div>
+                <span class="badge-type" id="lbl-perm-radio">Permanent</span>
+                <h3 id="prod-radio-title">Car Radio</h3>
+                <p id="prod-radio-desc">Custom in-vehicle radio system. Play your own stations and vibe across the city in style.</p>
+                <a href="https://discord.com/channels/1429467083615506623/1429467731408715806" class="btn-buy" target="_blank">
+                    <span class="btn-text">Purchase</span>
+                    <div class="price-container">
+                        <span class="new-price">$25.00</span>
+                    </div>
+                </a>
+            </div>
+            <div class="card">
+                <div class="sale-badge">⭐ SPECIAL OFFER</div>
                 <div class="card-icon"><i class="fas fa-key"></i></div>
                 <span class="badge-type" id="lbl-perm-1">Permanent</span>
                 <h3 id="prod-own-title">Import Ownership</h3>
                 <p id="prod-own-desc">Lifetime ownership of 1 Import Vehicle. Full customization and key access.</p>
                 <a href="https://discord.com/channels/1429467083615506623/1429467731408715806" class="btn-buy" target="_blank">
-                    <span class="btn-text">Purchase</span> 
+                    <span class="btn-text">Purchase</span>
                     <div class="price-container">
                         <span class="old-price">$60.00</span>
-                        <span class="new-price">$40.00</span>
+                        <span class="new-price">$35.00</span>
                     </div>
                 </a>
             </div>
@@ -576,30 +684,30 @@
         <div class="section-header" id="header-empire">Empire Building</div>
         <div class="grid">
             <div class="card">
-                <div class="sale-badge">SALE</div>
+                <div class="sale-badge">🌙 RAMADAN SALE</div>
                 <div class="card-icon"><i class="fas fa-users"></i></div>
                 <span class="badge-type" id="lbl-3mo-1">3 Months</span>
                 <h3 id="prod-gang-title">VIP Gang Package</h3>
                 <p id="prod-gang-desc">Includes Hood, Boss Menu, Stash, Garage, and 7 Import Cars. Valid for 3 Months.</p>
                 <a href="https://discord.com/channels/1429467083615506623/1429467731408715806" class="btn-buy" target="_blank">
-                    <span class="btn-text">Purchase</span> 
+                    <span class="btn-text">Purchase</span>
                     <div class="price-container">
                         <span class="old-price">$80.00</span>
-                        <span class="new-price">$50.00</span>
+                        <span class="new-price">$45.00</span>
                     </div>
                 </a>
             </div>
             <div class="card">
-                <div class="sale-badge">SALE</div>
+                <div class="sale-badge">🔥 LIMITED TIME</div>
                 <div class="card-icon"><i class="fas fa-building"></i></div>
                 <span class="badge-type" id="lbl-3mo-2">3 Months</span>
                 <h3 id="prod-house-title">VIP Luxury Estate</h3>
                 <p id="prod-house-desc">Exclusive Mansion or Penthouse lease. Furnishing rights included.</p>
                 <a href="https://discord.com/channels/1429467083615506623/1429467731408715806" class="btn-buy" target="_blank">
-                    <span class="btn-text">Purchase</span> 
+                    <span class="btn-text">Purchase</span>
                     <div class="price-container">
                         <span class="old-price">$100.00</span>
-                        <span class="new-price">$70.00</span>
+                        <span class="new-price">$60.00</span>
                     </div>
                 </a>
             </div>
@@ -613,54 +721,54 @@
                 <h3 id="prod-mech-title">Mechanic Shop</h3>
                 <p id="prod-mech-desc">Run your own repair shop. Set prices, fix cars, and earn profit. Valid for 30 days.</p>
                 <a href="https://discord.com/channels/1429467083615506623/1429467731408715806" class="btn-buy" target="_blank">
-                    <span class="btn-text">Purchase</span> 
+                    <span class="btn-text">Purchase</span>
                     <div class="price-container">
                         <span class="old-price">$45.00</span>
-                        <span class="new-price">$30.00</span>
+                        <span class="new-price">$25.00</span>
                     </div>
                 </a>
             </div>
 
             <div class="card">
-                <div class="sale-badge">BEST VALUE</div>
+                <div class="sale-badge">⭐ SPECIAL OFFER</div>
                 <div class="card-icon"><i class="fas fa-toolbox"></i></div>
                 <span class="badge-type" id="lbl-3mo-3">3 Months</span>
                 <h3 id="prod-mech3-title">Mechanic Enterprise</h3>
                 <p id="prod-mech3-desc">Long-term ownership of the Mechanic Business. Includes bonus stash space.</p>
                 <a href="https://discord.com/channels/1429467083615506623/1429467731408715806" class="btn-buy" target="_blank">
-                    <span class="btn-text">Purchase</span> 
+                    <span class="btn-text">Purchase</span>
                     <div class="price-container">
                         <span class="old-price">$90.00</span>
-                        <span class="new-price">$60.00</span>
+                        <span class="new-price">$50.00</span>
                     </div>
                 </a>
             </div>
-            
+
             <div class="card">
                 <div class="card-icon"><i class="fas fa-user-secret"></i></div>
                 <span class="badge-type" id="lbl-monthly-3">Monthly</span>
                 <h3 id="prod-bm-title">Black Market</h3>
                 <p id="prod-bm-desc">Control the underground. Sell illegal weapons and contraband. Valid for 30 days.</p>
                 <a href="https://discord.com/channels/1429467083615506623/1429467731408715806" class="btn-buy" target="_blank">
-                    <span class="btn-text">Purchase</span> 
+                    <span class="btn-text">Purchase</span>
                     <div class="price-container">
                         <span class="old-price">$45.00</span>
-                        <span class="new-price">$30.00</span>
+                        <span class="new-price">$25.00</span>
                     </div>
                 </a>
             </div>
 
             <div class="card">
-                <div class="sale-badge">SALE</div>
+                <div class="sale-badge">🌙 RAMADAN SALE</div>
                 <div class="card-icon"><i class="fas fa-mask"></i></div>
                 <span class="badge-type" id="lbl-3mo-4">3 Months</span>
                 <h3 id="prod-bm3-title">Black Market Empire</h3>
                 <p id="prod-bm3-desc">Long-term control of the black market. Includes exclusive supplier access.</p>
                 <a href="https://discord.com/channels/1429467083615506623/1429467731408715806" class="btn-buy" target="_blank">
-                    <span class="btn-text">Purchase</span> 
+                    <span class="btn-text">Purchase</span>
                     <div class="price-container">
                         <span class="old-price">$80.00</span>
-                        <span class="new-price">$50.00</span>
+                        <span class="new-price">$45.00</span>
                     </div>
                 </a>
             </div>
@@ -671,30 +779,30 @@
                 <h3 id="prod-real-title">Real Estate Agency</h3>
                 <p id="prod-real-desc">Sell luxury homes, manage interiors, and earn high commissions on every sale.</p>
                 <a href="https://discord.com/channels/1429467083615506623/1429467731408715806" class="btn-buy" target="_blank">
-                    <span class="btn-text">Purchase</span> 
+                    <span class="btn-text">Purchase</span>
                     <div class="price-container">
                         <span class="old-price">$50.00</span>
-                        <span class="new-price">$40</span>
+                        <span class="new-price">$30.00</span>
                     </div>
                 </a>
             </div>
 
             <div class="card">
-                <div class="sale-badge">HOT</div>
+                <div class="sale-badge">🔥 LIMITED TIME</div>
                 <div class="card-icon"><i class="fas fa-city"></i></div>
                 <span class="badge-type" id="lbl-3mo-5">3 Months</span>
                 <h3 id="prod-real3-title">Real Estate Mogul</h3>
                 <p id="prod-real3-desc">Own the agency for 3 months. Includes exclusive rights to sell mansions with a surprise.</p>
                 <a href="https://discord.com/channels/1429467083615506623/1429467731408715806" class="btn-buy" target="_blank">
-                    <span class="btn-text">Purchase</span> 
+                    <span class="btn-text">Purchase</span>
                     <div class="price-container">
                         <span class="old-price">$150.00</span>
-                        <span class="new-price">$100.00</span>
+                        <span class="new-price">$85.00</span>
                     </div>
                 </a>
             </div>
 
-            <div class="card" style="opacity: 0.7;">
+            <div class="card" style="opacity: 0.65;">
                 <div class="card-icon"><i class="fas fa-briefcase"></i></div>
                 <h3 id="prod-soon-title">More Businesses</h3>
                 <p id="prod-soon-desc">Bars, Nightclubs, and Restaurants are coming in future updates.</p>
@@ -703,25 +811,24 @@
                 </div>
             </div>
         </div>
+
         <div class="section-header" id="header-character">VIP Character</div>
         <div class="grid">
             <div class="card">
-                <div class="sale-badge">SALE</div>
+                <div class="sale-badge">⭐ SPECIAL OFFER</div>
                 <div class="card-icon"><i class="fas fa-user-tie"></i></div>
                 <span class="badge-type" id="lbl-perm-5">Permanent</span>
                 <h3 id="prod-peds-title">VIP Peds</h3>
                 <p id="prod-peds-desc">Access to exclusive custom ped models and skins.</p>
-                
                 <div class="btn-group">
                     <a href="https://pewestudios.com/opensource" target="_blank" class="btn-view">
                         <i class="fas fa-eye"></i> <span class="btn-view-text">View Peds</span>
                     </a>
-
                     <a href="https://discord.com/channels/1429467083615506623/1429467731408715806" class="btn-buy" target="_blank">
-                        <span class="btn-text">Purchase</span> 
+                        <span class="btn-text">Purchase</span>
                         <div class="price-container">
                             <span class="old-price">$100.00</span>
-                            <span class="new-price">$60.00</span>
+                            <span class="new-price">$50.00</span>
                         </div>
                     </a>
                 </div>
@@ -731,44 +838,44 @@
         <div class="section-header" id="header-weapons">Black Market</div>
         <div class="grid">
             <div class="card">
-                <div class="sale-badge">SALE</div>
+                <div class="sale-badge">🌙 RAMADAN SALE</div>
                 <div class="card-icon"><i class="fas fa-gun"></i></div>
                 <span class="badge-type" id="lbl-perm-2">Permanent</span>
                 <h3 id="prod-pistol-title">VIP Pistol</h3>
                 <p id="prod-pistol-desc">Standard issue sidearm for self defense.</p>
                 <a href="https://discord.com/channels/1429467083615506623/1429467731408715806" class="btn-buy" target="_blank">
-                    <span class="btn-text">Purchase</span> 
+                    <span class="btn-text">Purchase</span>
                     <div class="price-container">
                         <span class="old-price">$45.00</span>
-                        <span class="new-price">$30.00</span>
+                        <span class="new-price">$25.00</span>
                     </div>
                 </a>
             </div>
             <div class="card">
-                <div class="sale-badge">SALE</div>
+                <div class="sale-badge">🔥 LIMITED TIME</div>
                 <div class="card-icon"><i class="fas fa-person-rifle"></i></div>
                 <span class="badge-type" id="lbl-perm-3">Permanent</span>
                 <h3 id="prod-ar-title">VIP Assault Rifle</h3>
                 <p id="prod-ar-desc">Fully automatic carbine for high intensity situations.</p>
                 <a href="https://discord.com/channels/1429467083615506623/1429467731408715806" class="btn-buy" target="_blank">
-                    <span class="btn-text">Purchase</span> 
+                    <span class="btn-text">Purchase</span>
                     <div class="price-container">
                         <span class="old-price">$60.00</span>
-                        <span class="new-price">$40.00</span>
+                        <span class="new-price">$35.00</span>
                     </div>
                 </a>
             </div>
             <div class="card">
-                <div class="sale-badge">SALE</div>
+                <div class="sale-badge">⭐ SPECIAL OFFER</div>
                 <div class="card-icon"><i class="fas fa-crosshairs"></i></div>
                 <span class="badge-type" id="lbl-perm-4">Permanent</span>
                 <h3 id="prod-sniper-title">VIP Sniper</h3>
                 <p id="prod-sniper-desc">Long range elimination tool for the elite marksman.</p>
                 <a href="https://discord.com/channels/1429467083615506623/1429467731408715806" class="btn-buy" target="_blank">
-                    <span class="btn-text">Purchase</span> 
+                    <span class="btn-text">Purchase</span>
                     <div class="price-container">
                         <span class="old-price">$120.00</span>
-                        <span class="new-price">$80.00</span>
+                        <span class="new-price">$65.00</span>
                     </div>
                 </a>
             </div>
@@ -778,9 +885,9 @@
 
     <footer>
         <div class="policy-box" id="refund-policy">
-            <i class="fas fa-undo"></i> Refund Policy: Eligible for refund within 3 days of purchase.
+            🌙 Ramadan Policy: All purchases include bonus rewards during Ramadan season.
         </div>
-        <p style="margin-top: 15px; opacity: 0.5;">&copy; 2026 TCRP Store. All rights reserved.</p>
+        <p style="margin-top: 15px; opacity: 0.4;">&copy; 2026 TCRP Store. All rights reserved.</p>
     </footer>
 
     <a href="https://discord.gg/NUUkEJuN" class="discord-btn" target="_blank">
@@ -788,44 +895,14 @@
     </a>
 
     <script>
-        // SET TARGET DATE: 20 DAYS FROM NOW
-        const targetDate = new Date().getTime() + (20 * 24 * 60 * 60 * 1000); 
-
-        // Update the count down every 1 second
-        const x = setInterval(function() {
-            const now = new Date().getTime();
-            const distance = targetDate - now;
-
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-            document.getElementById("days").innerHTML = String(days).padStart(2, '0');
-            document.getElementById("hours").innerHTML = String(hours).padStart(2, '0');
-            document.getElementById("minutes").innerHTML = String(minutes).padStart(2, '0');
-            document.getElementById("seconds").innerHTML = String(seconds).padStart(2, '0');
-
-            if (distance < 0) {
-                clearInterval(x);
-                document.getElementById("timer-title").innerHTML = "BETA SEASON IS OPEN!";
-                document.querySelector('.timer').style.display = 'none';
-            }
-        }, 1000);
-
-
         // LANGUAGE LOGIC
         const content = {
             en: {
                 langName: "English",
-                heroTitle: 'Dominate The <span>City</span>',
-                heroDesc: "The official store for The City Roleplay. Purchase exclusive assets to enhance your gameplay experience.",
-                
-                timerTitle: "BETA SEASON OPENS IN",
-                lblDays: "DAYS",
-                lblHours: "HOURS",
-                lblMinutes: "MINS",
-                lblSeconds: "SECS",
+                heroTitle: 'Ramadan <span>Kareem</span>',
+                heroDesc: "Celebrate the holy month with exclusive Ramadan deals and limited-time rewards for The City Roleplay.",
+                timerTitle: "🌙 RAMADAN SEASON IS LIVE 🌙",
+                seasonSub: 'Enjoy exclusive Ramadan discounts across all categories!<br><span class="accent-text">Limited time \u2014 don\'t miss out.</span>',
 
                 headerVehicles: "VIP Vehicles",
                 headerEmpire: "Empire Building",
@@ -840,14 +917,13 @@
                 btnText: "Purchase",
                 btnView: "View Peds",
 
-                refund: '<i class="fas fa-undo"></i> Refund Policy: Eligible for refund within 3 days of purchase.',
+                refund: '🌙 Ramadan Policy: All purchases include bonus rewards during Ramadan season.',
 
-                pLease: { t: "Import Lease", d: "Access to 1 Import Vehicle of your choice for 30 days. Renew to keep." },
+                pRadio: { t: "Car Radio", d: "Custom in-vehicle radio system. Play your own stations and vibe across the city in style." },
+                pLease: d: "Access to 1 Import Vehicle of your choice for 30 days. Renew to keep." },
                 pOwn: { t: "Import Ownership", d: "Lifetime ownership of 1 Import Vehicle. Full customization and key access." },
                 pGang: { t: "VIP Gang Package", d: "Includes Hood, Boss Menu, Stash, Garage, and 7 Import Cars. Valid for 3 Months." },
                 pHouse: { t: "VIP Luxury Estate", d: "Exclusive Mansion or Penthouse lease. Furnishing rights included." },
-                
-                // Business Content
                 pMech: { t: "Mechanic Shop", d: "Run your own repair shop. Set prices, fix cars, and earn profit. Valid for 30 days." },
                 pMech3: { t: "Mechanic Enterprise", d: "Long-term ownership of the Mechanic Business. Includes bonus stash space." },
                 pBm: { t: "Black Market", d: "Control the underground. Sell illegal weapons and contraband. Valid for 30 days." },
@@ -855,7 +931,6 @@
                 pReal: { t: "Real Estate Agency", d: "Sell luxury homes, manage interiors, and earn high commissions on every sale." },
                 pReal3: { t: "Real Estate Mogul", d: "Own the agency for 3 months. Includes exclusive rights to sell mansions." },
                 pSoon: { t: "More Businesses", d: "Bars, Nightclubs, and Restaurants are coming in future updates." },
-
                 pPeds: { t: "VIP Peds", d: "Access to exclusive custom ped models and skins." },
                 pPistol: { t: "VIP Pistol", d: "Standard issue sidearm for self defense." },
                 pAr: { t: "VIP Assault Rifle", d: "Fully automatic carbine for high intensity situations." },
@@ -863,14 +938,10 @@
             },
             ar: {
                 langName: "العربية",
-                heroTitle: 'سيطر على <span>المدينة</span>',
-                heroDesc: "المتجر الرسمي لمدينة الرول بلاي. اشترِ ممتلكات حصرية لتحسين تجربتك في اللعب.",
-                
-                timerTitle: "يفتتح موسم البيتا في",
-                lblDays: "أيام",
-                lblHours: "ساعات",
-                lblMinutes: "دقيقة",
-                lblSeconds: "ثانية",
+                heroTitle: 'رمضان <span>كريم</span>',
+                heroDesc: "احتفل بالشهر الفضيل بعروض رمضان الحصرية ومكافآت محدودة الوقت في The City Roleplay.",
+                timerTitle: "🌙 موسم رمضان انطلق الآن 🌙",
+                seasonSub: 'استمتع بخصومات رمضان الحصرية على جميع الفئات!<br><span class="accent-text">عروض محدودة \u2014 لا تفوّتها.</span>',
 
                 headerVehicles: "مركبات VIP",
                 headerEmpire: "بناء الإمبراطورية",
@@ -885,14 +956,13 @@
                 btnText: "شراء",
                 btnView: "عرض الشخصيات",
 
-                refund: '<i class="fas fa-undo"></i> سياسة الاسترداد: يمكن طلب الاسترداد خلال 3 أيام من الشراء.',
+                refund: '🌙 سياسة رمضان: جميع المشتريات تتضمن مكافآت إضافية خلال موسم رمضان.',
 
+                pRadio: { t: "راديو السيارة", d: "نظام راديو مخصص داخل السيارة. شغّل محطاتك وتجول في المدينة بأسلوب." },
                 pLease: { t: "إيجار سيارة", d: "الحصول على سيارة مستوردة من اختيارك لمدة 30 يومًا. جدد للاحتفاظ بها." },
                 pOwn: { t: "ملكية سيارة", d: "ملكية مدى الحياة لسيارة مستوردة واحدة. تعديل كامل ومفاتيح." },
                 pGang: { t: "حزمة العصابات", d: "تشمل المنطقة، قائمة الزعيم، المخزون، المرآب، و ٧ سيارات مستوردة. صالحة لمدة 3 أشهر." },
                 pHouse: { t: "عقار فاخر", d: "إيجار قصر حصري أو بنتهاوس. تشمل حقوق التأثيث." },
-                
-                // Business Content
                 pMech: { t: "ورشة ميكانيكا", d: "إدارة ورشة الإصلاح الخاصة بك. حدد الأسعار، أصلح السيارات واكسب المال. صالح لمدة 30 يومًا." },
                 pMech3: { t: "مؤسسة ميكانيكا", d: "ملكية طويلة الأمد لورشة الميكانيكا. تشمل مساحة تخزين إضافية." },
                 pBm: { t: "السوق السوداء", d: "تحكم في التجارة السرية. بيع أسلحة وممنوعات. صالح لمدة 30 يومًا." },
@@ -900,7 +970,6 @@
                 pReal: { t: "وكالة العقارات", d: "بيع منازل فاخرة، إدارة التصاميم، واكسب عمولات عالية على كل عملية بيع." },
                 pReal3: { t: "إمبراطور العقارات", d: "امتلك الوكالة لمدة 3 أشهر. تشمل حقوق حصرية لبيع القصور." },
                 pSoon: { t: "المزيد من الأعمال", d: "الحانات، النوادي الليلية، والمطاعم قادمة في التحديثات المستقبلية." },
-
                 pPeds: { t: "شخصيات VIP", d: "الوصول إلى نماذج وشخصيات حصرية." },
                 pPistol: { t: "مسدس VIP", d: "سلاح جانبي قياسي للدفاع عن النفس." },
                 pAr: { t: "بندقية هجومية VIP", d: "رشاش آلي بالكامل للمواقف شديدة الخطورة." },
@@ -926,13 +995,8 @@
             document.getElementById('current-lang').innerText = lang.langName;
             document.getElementById('hero-title').innerHTML = lang.heroTitle;
             document.getElementById('hero-desc').innerText = lang.heroDesc;
-            
-            // Timer Labels
             document.getElementById('timer-title').innerText = lang.timerTitle;
-            document.getElementById('lbl-days').innerText = lang.lblDays;
-            document.getElementById('lbl-hours').innerText = lang.lblHours;
-            document.getElementById('lbl-minutes').innerText = lang.lblMinutes;
-            document.getElementById('lbl-seconds').innerText = lang.lblSeconds;
+            document.getElementById('season-sub').innerHTML = lang.seasonSub;
 
             document.getElementById('header-vehicles').innerText = lang.headerVehicles;
             document.getElementById('header-empire').innerText = lang.headerEmpire;
@@ -940,31 +1004,21 @@
             document.getElementById('header-character').innerText = lang.headerCharacter;
             document.getElementById('header-weapons').innerText = lang.headerWeapons;
 
-            // Update Refund Policy
             document.getElementById('refund-policy').innerHTML = lang.refund;
 
             updateText('lbl-monthly', lang.lblMonthly);
             updateText('lbl-perm', lang.lblPerm);
             updateText('lbl-3mo', lang.lbl3Mo);
-            
-            // Update all Coming Soon buttons
-            const soonBtns = document.querySelectorAll('.lbl-soon-text');
-            soonBtns.forEach(btn => btn.innerText = lang.lblSoonBtn);
 
-            // Update button texts specifically
-            const buttons = document.querySelectorAll('.btn-buy .btn-text');
-            buttons.forEach(btn => btn.innerText = lang.btnText);
-            
-            // Update View button text
-            const viewButtons = document.querySelectorAll('.btn-view .btn-view-text');
-            viewButtons.forEach(btn => btn.innerText = lang.btnView);
+            document.querySelectorAll('.lbl-soon-text').forEach(b => b.innerText = lang.lblSoonBtn);
+            document.querySelectorAll('.btn-buy .btn-text').forEach(b => b.innerText = lang.btnText);
+            document.querySelectorAll('.btn-view .btn-view-text').forEach(b => b.innerText = lang.btnView);
 
+            setProd('prod-radio', lang.pRadio);
             setProd('prod-lease', lang.pLease);
             setProd('prod-own', lang.pOwn);
             setProd('prod-gang', lang.pGang);
             setProd('prod-house', lang.pHouse);
-            
-            // Business
             setProd('prod-mech', lang.pMech);
             setProd('prod-mech3', lang.pMech3);
             setProd('prod-bm', lang.pBm);
@@ -972,7 +1026,6 @@
             setProd('prod-real', lang.pReal);
             setProd('prod-real3', lang.pReal3);
             setProd('prod-soon', lang.pSoon);
-
             setProd('prod-peds', lang.pPeds);
             setProd('prod-pistol', lang.pPistol);
             setProd('prod-ar', lang.pAr);
@@ -989,5 +1042,4 @@
         }
     </script>
 </body>
-
 </html>
